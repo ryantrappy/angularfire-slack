@@ -31,4 +31,14 @@ angular
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FirebaseUrl', 'https://slack.firebaseio.com/');
+  .constant('FirebaseUrl', 'https://slack.firebaseio.com/')
+.config(function(){
+  var config = {
+    apiKey: "AIzaSyBByqPpebUqk3yAn4_eTNbShOG18xeWv00",
+    authDomain: "connectandroidslack.firebaseapp.com",
+    databaseURL: "https://connectandroidslack.firebaseio.com",
+    storageBucket: "connectandroidslack.appspot.com",
+    messagingSenderId: "940447367686",
+  };
+  firebase.initializeApp(config);
+})
