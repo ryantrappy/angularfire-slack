@@ -1,7 +1,10 @@
 {
   "name": "angularfireslack",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bower": "^1.8.2",
+    "grunt-cli": "^1.2.0"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",
