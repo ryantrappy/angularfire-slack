@@ -12,6 +12,14 @@ angular.module('angularfireSlackApp')
       getDisplayName: function(uid){
         return users.$getRecord(uid).displayName;
       },
+      getAvatar: function(uid){
+        if(users.$getRecord(uid).avatar){
+          return users.$getRecord(uid).avatar;
+        }
+        else{
+          return "https://placeimg.com/640/480/animals"
+        }
+      },
       getGravatar: function(uid){
         return '//www.gravatar.com/avatar/' + users.$getRecord(uid).emailHash;
       },

@@ -4,11 +4,12 @@ angular.module('angularfireSlackApp')
     channelsCtrl.profile = profile;
     channelsCtrl.channels = channels;
     channelsCtrl.getDisplayName = Users.getDisplayName;
+    channelsCtrl.getAvatar = Users.getAvatar;
     channelsCtrl.getGravatar = Users.getGravatar;
     channelsCtrl.users = Users.all;
 
     Users.setOnline(profile.$id);
-  
+
     channelsCtrl.logout = function(){
       channelsCtrl.profile.online = null;
       channelsCtrl.profile.$save().then(function(){
