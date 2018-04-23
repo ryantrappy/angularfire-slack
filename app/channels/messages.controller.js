@@ -7,6 +7,16 @@ angular.module('angularfireSlackApp')
 
     messagesCtrl.message = '';
 
+    messagesCtrl.messages.$watch(function(){
+      console.log("new message")
+      if(profile.$id != messagesCtrl.messages[messagesCtrl.messages.length-1].uid){
+        if(profile.newMessage == undefined) profile.newMessage = {};
+        profile.newMessage[messagesCtrl.messages[messagesCtrl.messages.length-1].uid] = true;
+        profile.$save().then(function(){
+      })}
+      console.log(messagesCtrl.messages[messagesCtrl.messages.length-1].uid)
+    })
+
     messagesCtrl.sendMessage = function (){
       if(messagesCtrl.message.length > 0){
         messagesCtrl.messages.$add({
@@ -18,5 +28,5 @@ angular.module('angularfireSlackApp')
         });
       }
     };
-    
+
   });

@@ -16,10 +16,11 @@
         </div>
 
         <div class="list-head">Direct Messages</div>
-        <div class="channel" ng-repeat="user in channelsCtrl.users">
+        <div class="channel" ng-repeat="user in channelsCtrl.users" ng-click=" channelsCtrl.profile.newMessage[user.$id] = false; channelsCtrl.profile.$save();">
           <a ng-if="user.$id !== channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})" ui-sref-active="selected">
             <span class="presence" ng-class="{online: user.online}"></span>
             {{ user.displayName }}
+            <span ng-if="user.$id !== channelsCtrl.profile.$id && channelsCtrl.profile.newMessage[user.$id]"  class="badge" ng-class="{newMessage: user.newMessage}">New</span>
           </a>
         </div>
     </div>

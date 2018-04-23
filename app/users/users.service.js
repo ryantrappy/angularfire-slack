@@ -9,6 +9,9 @@ angular.module('angularfireSlackApp')
       getProfile: function(uid){
         return $firebaseObject(usersRef.child(uid));
       },
+      getNewMessages: function(uid){
+        return users.$getRecord(uid).newMessage;
+      },
       getDisplayName: function(uid){
         return users.$getRecord(uid).displayName;
       },
@@ -35,6 +38,10 @@ angular.module('angularfireSlackApp')
             });
           }
         });
+      },
+      setNewMessage: function(sender, reciever){
+        var newMessage = $firebaseArray(usersRef.child(reciever + '/newMessage'));
+        console.log(newMessage);
       }
     };
 

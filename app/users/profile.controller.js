@@ -4,6 +4,13 @@ angular.module('angularfireSlackApp')
 
     profileCtrl.profile = profile;
 
+    profileCtrl.updateNewMessage = function(){
+      profileCtrl.profile.$save().then(function(){
+        console.log("saved user");
+        console.log(profileCtrl.profile)
+      })
+    }
+
     profileCtrl.updateProfile = function(){
       profileCtrl.profile.emailHash = md5.createHash(auth.email);
       profileCtrl.profile.$save().then(function(){

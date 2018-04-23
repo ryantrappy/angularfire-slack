@@ -7,6 +7,7 @@ angular.module('angularfireSlackApp')
     channelsCtrl.getAvatar = Users.getAvatar;
     channelsCtrl.getGravatar = Users.getGravatar;
     channelsCtrl.users = Users.all;
+    channelsCtrl.getNewMessages = Users.getNewMessages;
 
     Users.setOnline(profile.$id);
 
